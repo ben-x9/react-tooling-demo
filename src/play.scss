@@ -1,0 +1,14 @@
+.play-view {
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+
+  .buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    :last-child {
+      margin-left: auto;
+    }
+  }
+}
