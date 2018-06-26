@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js",
-    "dev:phone": "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
+    "story": "webpack-dev-server --config webpack.config.story.js",
+    "dev:phone":
+      "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
     "build": "webpack --config webpack.config.build.js",
     "test": "mocha-webpack test/**/*.ts",
     "test:watch": "npm run test -- --watch",
@@ -105,8 +107,6 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {}
     },
-    "platforms": [
-      "browser"
-    ]
+    "platforms": ["browser"]
   }
 }

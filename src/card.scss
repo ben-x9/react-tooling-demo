@@ -1,28 +1,24 @@
-.home-view {
-  .card {
-    display: flex;
-    flex-direction: row;
+.card.home {
+  display: flex;
+  flex-direction: row;
 
-    * {
-      width: 240px;
-    }
+  * {
+    width: 240px;
+  }
 
-    &.input {
-      input {
-        width: 160px;
-      }
+  &.input {
+    input {
+      width: 160px;
     }
   }
 }
 
-.play-view {
-  .card {
-    font-size: 30px;
-    margin: 20px auto;
-    width: 300px;
-    text-align: center;
-    .japanese {
-      margin-top: 20px;
-    }
+.card.play {
+  font-size: 30px;
+  margin: 20px auto;
+  width: 300px;
+  text-align: center;
+  .japanese {
+    margin-top: 20px;
   }
 }

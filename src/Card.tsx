@@ -15,14 +15,14 @@ export const State = (id = 0, english = "", japanese = "") => ({
 import "card.scss"
 
 export const HomeView = (state: State) => (
-  <div className="card">
+  <div className="card home">
     <div>{state.english}</div>
     <div>{state.japanese}</div>
   </div>
 )
 
 export const PlayView = ({show, ...state}: State & {show: boolean}) => (
-  <div className="card">
+  <div className="card play">
     <div className="english">{state.english}</div>
     {show ? <div className="japanese">{state.japanese}</div> : null}
   </div>

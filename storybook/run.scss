@@ -1,0 +1,28 @@
+.run {
+  .story {
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    .name {
+      padding: 3px;
+      background-color: lightgray;
+      cursor: pointer;
+      &.selected {
+        background-color: lightblue;
+      }
+    }
+    .chapter {
+      .name {
+        margin: 3px 30px 0px;
+        background-color: lighten(lightgrey, 10%);
+        &.selected {
+          background-color: lighten(lightblue, 10%);
+        }
+      }
+    }
+  }
+  .component {
+    padding: 20px;
+    margin: 20px auto;
+  }
+}
