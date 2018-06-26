@@ -12,7 +12,7 @@ import * as fastclick from "fastclick"
 import * as Routes from "./routes"
 
 import "stories/index"
-import {stories, AnyStory} from "./index"
+import {stories, AnyStory, begin} from "./index"
 
 import "normalize.css"
 import "./run.scss"
@@ -117,7 +117,7 @@ const update = (state: State, action: Action, dispatch: Dispatch): State => {
 const View = (state: State & Dispatcher) => (
   <div className="run">
     {state.stories.map(story => (
-      <div className="story">
+      <div key={story.name} className="story">
         <div
           className={`name${
             story.name === state.selectedStory ? " selected" : ""
@@ -128,7 +128,7 @@ const View = (state: State & Dispatcher) => (
         </div>
         {story.name === state.selectedStory &&
           story.chapters.map(chapter => (
-            <div className="chapter">
+            <div key={chapter.name} className="chapter">
               {story.chapters.length > 1 ? (
                 <div
                   className={`name${

@@ -8,8 +8,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js",
     "story": "webpack-dev-server --config webpack.config.story.js",
-    "dev:phone":
-      "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
+    "dev:phone": "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
     "build": "webpack --config webpack.config.build.js",
     "test": "mocha-webpack test/**/*.ts",
     "test:watch": "npm run test -- --watch",
@@ -50,7 +49,7 @@
     "normalize.css": "^7.0.0",
     "react-fastclick": "^3.0.2",
     "react-tappable": "^1.0.2",
-    "react-tooling": "^0.12.1"
+    "react-tooling": "^0.12.3"
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
@@ -107,6 +106,8 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {}
     },
-    "platforms": ["browser"]
+    "platforms": [
+      "browser"
+    ]
   }
 }

@@ -1,8 +1,10 @@
-import {story} from "storybook"
+import {story, begin} from "storybook"
 import * as Card from "Card"
 import * as Play from "Play"
 import * as Home from "Home"
 import "Root"
+
+begin()
 
 story("home card", Card.HomeView)
   .add("hello", {id: 1, english: "hello", japanese: "こんにちは"})

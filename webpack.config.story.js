@@ -9,9 +9,9 @@ module.exports = {
   entry: {
     bundle: ["react-hot-loader/patch", absPath("storybook/run.tsx")]
   },
-  resolve: {
-    modules: [...modules, path.resolve("./storybook")]
-  },
+  // resolve: {
+  //   modules: [...config.resolve.modules, path.resolve("./storybook")]
+  // },
   devServer: {
     ...config.devServer,
     port: 9991

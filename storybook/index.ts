@@ -16,6 +16,8 @@ interface Chapter<State> {
 
 export const stories: Story<{}>[] = []
 
+export const begin = () => stories.splice(0, stories.length)
+
 export const story = <State>(
   name: string,
   view: View<State>,
