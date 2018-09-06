@@ -1,61 +1,40 @@
-import {React, Dispatcher, List, isActionOf} from "react-tooling"
+import {React, Dispatcher} from "react-tooling"
+import {List} from "functools-ts"
 import * as Card from "Card"
 
 export interface State {
   index: number
-  cards: List<Card.State>
   show: boolean
 }
 export const State: State = {
   index: 0,
-  cards: [],
   show: false
 }
 
-export enum ActionType {
-  Next = "Next",
-  Show = "Show"
-}
+const next = (cards: List<Card.State>) => (state: State): State => ({
+  show: false,
+  index: state.index === cards.length - 1 ? 0 : state.index + 1
+})
 
-export interface Next {
-  type: ActionType.Next
-}
-export const Next = {
-  type: ActionType.Next
-}
-
-export interface Show {
-  type: ActionType.Show
-}
-export const Show = {
-  type: ActionType.Show
-}
-
-export type Action = Next | Show
-
-export const reactsTo = isActionOf<Action>(ActionType.Next, ActionType.Show)
-
-export const update = (state: State, action: Action): State => {
-  switch (action.type) {
-    case ActionType.Next:
-      return {
-        ...state,
-        show: false,
-        index: state.index === state.cards.length - 1 ? 0 : state.index + 1
-      }
-    case ActionType.Show:
-      return {...state, show: true}
-  }
-}
+const show = (state: State): State => ({
+  ...state,
+  show: true
+})
 
 import "play.scss"
 
-export const View = ({dispatch, ...state}: State & Dispatcher) => (
+type Props = {cards: List<Card.State>} & State
+
+export const View = ({
+  dispatch,
+  cards,
+  ...state
+}: Props & Dispatcher<State>) => (
   <div className="play-view">
-    <Card.PlayView {...state.cards[state.index]} show={state.show} />
+    <Card.PlayView {...cards[state.index]} show={state.show} />
     <div className="buttons">
-      <button onClick={() => dispatch(Show)}>Show</button>
-      <button onClick={() => dispatch(Next)}>Next</button>
+      <button onClick={() => dispatch(show)}>Show</button>
+      <button onClick={() => dispatch(next(cards))}>Next</button>
     </div>
   </div>
 )

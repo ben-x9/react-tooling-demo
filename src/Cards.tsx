@@ -1,6 +1,7 @@
 import * as Card from "Card"
-import {List, Omit, isActionOf} from "react-tooling"
+import {Omit} from "react-tooling"
 import {last, sortBy} from "lodash"
+import {List} from "functools-ts"
 
 export type State = List<Card.State>
 export const State = [
@@ -16,27 +17,9 @@ export const State = [
   Card.State(10, "urine test", "尿検査")
 ]
 
-export enum ActionType {
-  Add = "Add"
-}
+type NewCard = Omit<Card.State, "id">
 
-export interface Add {
-  type: ActionType.Add
-  card: Omit<Card.State, "id">
-}
-export const Add = (card: Add["card"]) => ({
-  type: ActionType.Add,
-  card
-})
-
-export type Action = Add
-
-export const reactsTo = isActionOf<Action>(ActionType.Add)
-
-export const update = (state: State, action: Action): State => {
-  switch (action.type) {
-    case ActionType.Add:
-      const id = last(sortBy(state, "id"))!.id + 1
-      return [{...action.card, id}, ...state]
-  }
-}
+export const add = (card: NewCard) => (state: State) => [
+  {...card, id: last(sortBy(state, "id"))!.id + 1},
+  ...state
+]
