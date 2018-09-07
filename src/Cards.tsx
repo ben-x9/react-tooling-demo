@@ -19,7 +19,7 @@ export const State = [
 
 type NewCard = Omit<Card.State, "id">
 
-export const add = (card: NewCard) => (state: State) => [
+export const add = (card: NewCard) => (state: State): State => [
   {...card, id: last(sortBy(state, "id"))!.id + 1},
   ...state
 ]

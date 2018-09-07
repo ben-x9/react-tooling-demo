@@ -12,12 +12,11 @@ load(
   module,
   {
     onInit: (state: Root.State, _: DispatchUpdate<Root.State>) => {
+      console.log(state.home)
       console.log("App init")
-      return state
     },
-    onRouteChanged: (route: Route, _: DispatchUpdate<Route>): Route => {
+    onRouteChanged: (route: Route, _: DispatchUpdate<Root.State>) => {
       console.log(route)
-      return route
     }
   },
   {
