@@ -48,9 +48,9 @@
     "normalize.css": "^7.0.0",
     "react-fastclick": "^3.0.2",
     "react-tappable": "^1.0.2",
-    "react-tooling": "^0.12.1",
+    "react-tooling": "^0.20.1",
     "monocle-ts": "^1.2.0",
-    "functools-ts": "^0.0.11"
+    "functools-ts": "^0.0.12"
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
